@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AllInventory">
+   <children>
+      <Label layoutX="40.0" layoutY="13.0" prefHeight="35" text="INVENTORY" underline="true">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="inventory_type" layoutX="20.0" layoutY="45.0" onAction="#select_inventory_type" prefHeight="35" prefWidth="250.0" />
+
+      <Pane fx:id="salespane1" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" text="ENTER MONTH AND YEAR">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="salescombo" layoutX="208.0" layoutY="5.0" prefHeight="31.0" prefWidth="103.0" />
+            <TextField fx:id="s_year" layoutX="320.0" layoutY="5.0" prefHeight="31.0" prefWidth="159.0" promptText="YEAR (YYYY)">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+
+            <Button layoutX="184.0" layoutY="56.0" mnemonicParsing="false" onAction="#selectMonth" prefHeight="29.0" prefWidth="126.0" text="VIEW">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button layoutX="320.0" layoutY="56.0" mnemonicParsing="false" onAction="#salesInRepInXL1" prefHeight="29.0" prefWidth="126.0" text="REPORT IN EXCEL">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="purchasepane" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+         <children>
+            <Label layoutX="5.0" layoutY="5.0" text="ENTER MONTH AND YEAR">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="purchaseCombo" layoutX="186.0" layoutY="5.0" prefHeight="31.0" prefWidth="103.0" />
+            <TextField fx:id="p_year" layoutX="312.0" layoutY="5.0" prefHeight="31.0" prefWidth="159.0" promptText="YEAR (YYYY)">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </TextField>
+            <Button layoutX="184.0" layoutY="56.0" mnemonicParsing="false" onAction="#selectPurchaseMonth" prefHeight="29.0" prefWidth="126.0" text="VIEW">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button layoutX="320.0" layoutY="56.0" mnemonicParsing="false" onAction="#exportPurchaseToXL1" prefHeight="29.0" prefWidth="126.0" text="REPORT IN EXCEL">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+         </children>
+      </Pane>
+      <Pane fx:id="dateRepPaneFrame" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+         <children>
+            <DatePicker fx:id="datestart1" layoutX="5.0" layoutY="5.0" prefHeight="29.0" prefWidth="174.0" />
+            <DatePicker fx:id="dateend1" layoutX="217.0" layoutY="5.0" prefHeight="29.0" prefWidth="174.0" />
+
+            <Button layoutX="184.0" layoutY="56.0" mnemonicParsing="false" onAction="#dateSelecterRep" prefHeight="29.0" prefWidth="126.0" text="VIEW">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button layoutX="320.0" layoutY="56.0" mnemonicParsing="false" onAction="#repByDateXL1" prefHeight="29.0" prefWidth="126.0" text="REPORT IN EXCEL">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Label layoutX="189.0" layoutY="11.0" text="To">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="itemRegPane" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+         <children>
+            <TextField fx:id="reportItem" layoutX="5.0" layoutY="5.0" onKeyTyped="#searchitemproduct" prefWidth="170" promptText="STOCK NAME">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+            <Button layoutX="184.0" layoutY="56.0" mnemonicParsing="false" onAction="#itemSelectorRep" prefHeight="29.0" prefWidth="126.0" text="VIEW">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button layoutX="320.0" layoutY="56.0" mnemonicParsing="false" onAction="#itemRepInXL1" prefHeight="29.0" prefWidth="126.0" text="REPORT IN EXCEL">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+         </children>
+      </Pane>
+      <Pane fx:id="datepurchasepane" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+         <children>
+            <DatePicker fx:id="datestart1111" layoutX="5.0" layoutY="5.0" prefHeight="29.0" prefWidth="174.0" />
+            <DatePicker fx:id="dateend1111" layoutX="217.0" layoutY="5.0" prefHeight="29.0" prefWidth="174.0" />
+            <Button layoutX="184.0" layoutY="56.0" mnemonicParsing="false" onAction="#dateSelecterReps11" prefHeight="29.0" prefWidth="126.0" text="VIEW">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button layoutX="320.0" layoutY="56.0" mnemonicParsing="false" onAction="#dateWisePurChaseRepInXL1" prefHeight="29.0" prefWidth="126.0" text="REPORT IN EXCEL">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Label layoutX="189.0" layoutY="11.0" text="To">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="DealerRegPane1" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+         <children>
+            <TextField fx:id="reportDealers1" layoutX="5.0" layoutY="5.0" onKeyTyped="#searchdealerproduct" prefWidth="170" promptText="DEALER NAME" />
+            <Button layoutX="184.0" layoutY="56.0" mnemonicParsing="false" onAction="#dealerSelectorRep" prefHeight="29.0" prefWidth="126.0" text="VIEW">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button layoutX="320.0" layoutY="56.0" mnemonicParsing="false" onAction="#dealerWiseReportInXl1" prefHeight="29.0" prefWidth="126.0" text="REPORT IN XL">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+         </children>
+      </Pane>
+
+
+      <Pane fx:id="brief_sales_report" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+         <children>
+            <DatePicker fx:id="date1" layoutX="5" layoutY="5" prefHeight="29.0" prefWidth="174.0" />
+
+            <Label focusTraversable="false" layoutX="188.0" layoutY="10.0" text="To" />
+
+            <DatePicker fx:id="date2" layoutX="211.0" layoutY="5.0" prefHeight="29.0" prefWidth="174.0" />
+
+            <Button layoutX="184.0" layoutY="56.0" mnemonicParsing="false" onAction="#selectMonthIs" prefHeight="29.0" prefWidth="126.0" text="VIEW">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button layoutX="320.0" layoutY="56.0" mnemonicParsing="false" onAction="#salesInRepInXL1Is" prefHeight="29.0" prefWidth="126.0" text="REPORT IN EXCEL">
+            <font>
+            <Font size="13.0" />
+            </font>
+            </Button>
+         </children>
+      </Pane>
+
+      <Pane fx:id="gst_info_pane" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+         <children>
+            <DatePicker fx:id="datestart11ss" layoutX="5.0" layoutY="5.0" prefHeight="29.0" prefWidth="174.0" />
+            <DatePicker fx:id="dateend11ss" layoutX="228.0" layoutY="5.0" prefHeight="29.0" prefWidth="174.0" />
+            <Button layoutX="320.0" layoutY="56.0" mnemonicParsing="false" onAction="#gst_report_in_excel" prefHeight="29.0" prefWidth="126.0" text="REPORT IN XL">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Label layoutX="193.0" layoutY="11.0" text="To">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+
+      <Pane fx:id="gst_info_pane2" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+         <children>
+            <DatePicker fx:id="s_date" layoutX="5.0" layoutY="5.0" prefHeight="29.0" prefWidth="174.0" />
+            <DatePicker fx:id="e_date" layoutX="228.0" layoutY="5.0" prefHeight="29.0" prefWidth="174.0" />
+
+            <Button layoutX="320.0" layoutY="56.0" mnemonicParsing="false" onAction="#day_wise_gst_info" prefHeight="29.0" prefWidth="126.0" text="REPORT IN XL">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Label layoutX="193.0" layoutY="11.0" text="To">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="view_pane" layoutX="15.0" layoutY="150.0" prefHeight="500.0" prefWidth="940.0" />
+   </children>
+</AnchorPane>

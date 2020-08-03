@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefHeight="720.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CancellBilling">
+    <content>
+        <AnchorPane prefHeight="715.0" prefWidth="1045.0">
+            <children>
+                <Label layoutX="100.0" layoutY="12.0" text="BILL CANCELLATION" underline="true">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+
+                <Label layoutX="355.0" layoutY="63.0" text="BILL DATE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="billDate" focusTraversable="false" layoutX="467.0" layoutY="60.0" prefHeight="25.0" prefWidth="151.0" />
+
+                <Label layoutX="20.0" layoutY="60.0" text="INVOICE NO">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="invoiceNumber" layoutX="138.0" layoutY="59.0" onKeyReleased="#loadInvoiceDetailsByInvoiceNumber" prefHeight="25.0" prefWidth="199.0" promptText="INVOICE NO">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="20.0" layoutY="88.0" text="CUSTOMER ID">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="customerId" layoutX="138.0" layoutY="84.0" prefHeight="25.0" prefWidth="200.0" promptText="CUSTOMER ID">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="20.0" layoutY="113.0" text="CUSTOMER NAME">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="customerNameEditText" layoutX="138.0" layoutY="109.0" prefHeight="25.0" prefWidth="200.0" promptText="CUSTOMER NAME">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="16.0" layoutY="138.0" text="BILL AMOUNT">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="billAMount" editable="false" layoutX="139.0" layoutY="134.0" prefHeight="25.0" prefWidth="200.0" promptText="BILL AMOUNT">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="16.0" layoutY="163.0" text="DEDUCTION">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="deductionAmount" layoutX="139.0" layoutY="159.0" onKeyReleased="#calculateReturnAmount" prefHeight="25.0" prefWidth="200.0" promptText="AMOUNT">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="16.0" layoutY="188.0" text="RETURN AMOUNT AMOUNT">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="returnAmount" focusTraversable="false" layoutX="139.0" layoutY="184.0" prefHeight="25.0" prefWidth="200.0" promptText="RETURN AMOUNT">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="355.0" layoutY="125.0" text="CANCEL DATE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="cancelDate" layoutX="467.0" layoutY="122.0" prefHeight="25.0" prefWidth="151.0" />
+                <Label layoutX="355.0" layoutY="152.0" text="CANCEL REASON">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="cancelReason" layoutX="468.0" layoutY="147.0" prefHeight="25.0" prefWidth="151.0">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </TextField>
+
+                <JFXButton buttonType="RAISED" layoutX="163.0" layoutY="211.0" onAction="#cancelBill" prefHeight="8.0" prefWidth="88.0" style="-fx-background-color: #d9d9d9;" text="CANCEL BILL">
+                    <font>
+                        <Font name="System Bold" size="11.0" />
+                    </font>
+                </JFXButton>
+
+                <Pane fx:id="billListPane" layoutX="19.0" layoutY="244.0" prefHeight="230.0" prefWidth="880.0" />
+            <Label layoutX="75.0" layoutY="488.0" text="CANCEL REASON">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="alreadyCancelReason" layoutX="188.0" layoutY="483.0" prefHeight="25.0" prefWidth="300.0">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </TextField>
+
+
+
+
+
+
+
+            </children>
+        </AnchorPane>
+    </content>
+</ScrollPane>

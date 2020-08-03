@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" style="-fx-background-color: #2784c2;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TextField fx:id="text1" layoutX="573.0" layoutY="184.0" promptText="           User Name">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="text2" layoutX="573.0" layoutY="262.0" promptText="            Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="button" layoutX="644.0" layoutY="338.0" mnemonicParsing="false" onAction="#login" prefHeight="39.0" prefWidth="85.0" style="-fx-background-color: #16b8dd;" text=" Login">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="411.0" layoutY="611.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="100.0" fitWidth="251.0" layoutX="559.0" layoutY="38.0">
+         <image>
+            <Image url="@../img/ranj.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="546.0" layoutY="415.0" text="Product By: Mitra Group" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="595.0" layoutY="463.0" text=" : 08182-298188 " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="601.0" layoutY="501.0" text=": support@expressbilling.in" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="602.0" layoutY="536.0" onMouseClicked="#open_eb" text=": www.expressbilling.in" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="35.0" fitWidth="46.0" layoutX="544.0" layoutY="463.0">
+         <image>
+            <Image url="@../img/Phone-PNG-File.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="46.0" layoutX="544.0" layoutY="502.0">
+         <image>
+            <Image url="@../img/Emails.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="46.0" layoutX="544.0" layoutY="540.0">
+         <image>
+            <Image url="@../img/Website.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="863.0" layoutY="463.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ExpenseEntry">
+    <children>
+        <Label layoutX="30.0" layoutY="-2.0" text="EXPENSE DETAILS ENTRY" underline="true">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+
+        <Label layoutX="15.0" layoutY="41.0" text="DATE : ">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="expensePayementDate" layoutX="116.0" layoutY="34.0" prefHeight="29.0" prefWidth="132.0" />
+
+        <Label layoutX="14.0" layoutY="100.0" text="EXPENSE ">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="expenseNameWhilePayment" layoutX="116.0" layoutY="96.0" onKeyReleased="#liveSearchForExpense" prefWidth="170" promptText="EXPENSE">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </TextField>
+
+        <Label layoutX="14.0" layoutY="127.0" text="AMOUNT">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="paymentAmount" layoutX="116.0" layoutY="122.0" prefWidth="170" promptText="AMOUNT">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </TextField>
+
+        <Label layoutX="14.0" layoutY="152.0" text="OTHER DETAILS">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="expensePaymentOhterDetails" layoutX="116.0" layoutY="148.0" prefWidth="170" promptText="OTHER DETAILS">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </TextField>
+
+        <JFXButton buttonType="RAISED" layoutX="116.0" layoutY="181.0" onAction="#payExpensePayment" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" text="SAVE">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </JFXButton>
+
+        <Pane fx:id="expensePaymentDeatilsListPane" layoutX="24.0" layoutY="247.0" prefHeight="332.0" prefWidth="699.0" />
+
+        <Label layoutX="339.0" layoutY="42.0" text="FROM :">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="expensePayementDateFrom" layoutX="382.0" layoutY="35.0" prefHeight="29.0" prefWidth="132.0" />
+        <Label layoutX="341.0" layoutY="79.0" text="TO      :">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="expensePayementDateTo" layoutX="382.0" layoutY="68.0" prefHeight="29.0" prefWidth="132.0" />
+        <JFXButton buttonType="RAISED" layoutX="633.0" layoutY="37.0" onAction="#viewExpensePaymentDetails" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" text="VIEW">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="634.0" layoutY="74.0" onAction="#excelReportExpensePaymentDetails" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" text="EXCEL REPORT">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </JFXButton>
+        <Label layoutX="342.0" layoutY="105.0" text="TOTAL AMOUNT">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <TextField fx:id="expensePaymentTotal" focusTraversable="false" layoutX="451.0" layoutY="102.0" prefWidth="170" promptText="TOTAL AMOUNT">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </TextField>
+      <JFXButton buttonType="RAISED" layoutX="310.0" layoutY="183.0" onAction="#editexpense" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" text="EDIT">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="418.0" layoutY="183.0" onAction="#updateexpense" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" text="UPDATE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="527.0" layoutY="183.0" onAction="#deleteexpense" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: #d9d9d9;" text="DELETE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="expenseID" layoutX="116.0" layoutY="69.0" onMouseClicked="#expenseid" prefWidth="170" promptText="EXPENSE ID">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </TextField>
+      <Label layoutX="13.0" layoutY="75.0" text="EXPENSE ID">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+
+    </children>
+</AnchorPane>

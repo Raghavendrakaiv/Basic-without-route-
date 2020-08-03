@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.reg1">
+    <children>
+        <Label layoutX="339.0" layoutY="15.0" prefHeight="25.0" text="EMPLOYEE DETAILS" underline="true">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Button layoutX="301.0" layoutY="50.0" mnemonicParsing="false" onAction="#gen_reg_rep" text="VIEW REPORT">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font></Button>
+      <Button layoutX="439.0" layoutY="50.0" mnemonicParsing="false" onAction="#employeeReprtPDF" text="PRINT REPORT">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+        <Pane fx:id="view_reg_pane" layoutX="20.0" layoutY="90.0" prefHeight="251.0" prefWidth="900.0" />
+      <Button layoutX="20.0" layoutY="352.0" mnemonicParsing="false" onAction="#edit_employee" prefHeight="30.0" prefWidth="119.0" text="EDIT">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+        <Button layoutX="147.0" layoutY="352.0" mnemonicParsing="false" onAction="#delete_employee" prefHeight="30.0" prefWidth="119.0" text="DELETE">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Button>
+        <Pane fx:id="edit_pane" layoutX="144.0" layoutY="387.0" prefHeight="230.0" prefWidth="785.0" visible="false">
+         <children>
+            <Label layoutX="5.0" layoutY="8.0" text="EMPLOYEE ID">
+                <font>
+                    <Font name="System Bold" size="13.0" />
+                </font>
+            </Label>
+             <Label layoutX="5.0" layoutY="39.0" text="EMPLOYEE NAME">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </Label>
+             <Label layoutX="378.0" layoutY="10.0" text="OLD USERNAME">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </Label>
+             <Label layoutX="377.0" layoutY="40.0" text="NEW USERNAME">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </Label>
+             <Label layoutX="377.0" layoutY="70.0" text="PASSWORD">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font></Label>
+             <Label layoutX="377.0" layoutY="102.0" text="CONFIRM PASSWORD">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font></Label>
+             <Label layoutX="5.0" layoutY="67.0" text="EMAIL ID">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font></Label>
+             <Label layoutX="5.0" layoutY="99.0" text="MOBILE NUMBER">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font></Label>
+             <Label layoutX="5.0" layoutY="128.0" text="ADDRESS">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font></Label>
+
+             <TextField fx:id="employee_Id" editable="false" layoutX="155.0" layoutY="5.0" prefHeight="25" prefWidth="200" promptText="EMPLOYEE ID">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="employee_name" layoutX="155.0" layoutY="35.0" prefHeight="25" prefWidth="200" promptText="EMPLOYEE NAME">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="email_id" layoutX="155.0" layoutY="65.0" prefHeight="25" prefWidth="200" promptText="EMAIL ID">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="m_no" layoutX="155.0" layoutY="95.0" prefHeight="25" prefWidth="200" promptText="MOBILE NUMBER">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="address" layoutX="155.0" layoutY="125.0" prefHeight="25" prefWidth="200" promptText="ADDRESS">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="old_username" editable="false" layoutX="527.0" layoutY="5.0" prefHeight="25" prefWidth="200" promptText="OLD USERNAME">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="new_username" layoutX="528.0" layoutY="36.0" prefHeight="25" prefWidth="200" promptText="NEW USERNAME">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="password" layoutX="527.0" layoutY="67.0" prefHeight="25" prefWidth="200" promptText="PASSWORD ">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="c_password" layoutX="527.0" layoutY="97.0" prefHeight="25" prefWidth="200" promptText="CONFIRM PASSWORD">
+                 <font>
+                     <Font name="System Bold" size="13.0" />
+                 </font>
+             </TextField>
+             <Button layoutX="303.0" layoutY="184.0" mnemonicParsing="false" onAction="#save_employee" prefHeight="30.0" prefWidth="119.0" text="SAVE">
+                 <font>
+                     <Font name="System Bold" size="14.0" />
+                 </font>
+             </Button>
+         </children>
+        </Pane>
+    </children>
+</AnchorPane>

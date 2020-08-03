@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="985.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.chart_view_controler">
+    <children>
+        <Label layoutX="40.0" layoutY="13.0" prefHeight="35" text="CHART VIEW" underline="true">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="title_label" layoutX="20.0" layoutY="151.0" prefHeight="30.0" prefWidth="500" textAlignment="CENTER" textFill="#2b2727">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font></Label>
+        <BarChart fx:id="bar_chart" layoutX="15.0" layoutY="196.0" prefHeight="400.0" prefWidth="900.0" visible="true">
+            <xAxis>
+                <CategoryAxis fx:id="catagory" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="number_axis" side="LEFT" />
+            </yAxis>
+        </BarChart>
+        <ComboBox fx:id="chart_type" layoutX="20.0" layoutY="45.0" onAction="#select_chart_type" prefHeight="35" prefWidth="250.0" />
+
+        <!--1-->
+        <Pane fx:id="year_purchase" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+            <children>
+                <Label layoutX="5.0" layoutY="5.0" prefHeight="25.0" text="ENTER YEAR  ">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="year" layoutX="117.0" layoutY="5.0" prefWidth="200" promptText="YEAR ( YYYY )">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </TextField>
+                <Button fx:id="view_purchase" layoutX="344.0" layoutY="5.0" mnemonicParsing="false" onAction="#purchase_year" prefHeight="30.0" prefWidth="99.0" text="VIEW CHART">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <!--2-->
+        <Pane fx:id="year_sales" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+            <children>
+                <Label layoutX="5.0" layoutY="5.0" prefHeight="25.0" text="ENTER YEAR">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font></Label>
+                <TextField fx:id="s_year" layoutX="107.0" layoutY="5.0" prefWidth="200" promptText="YEAR (  YYYY )">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font></TextField>
+                <Button fx:id="view_sales" layoutX="334.0" layoutY="5.0" mnemonicParsing="false" onAction="#sales_year" prefHeight="25.0" prefWidth="99.0" text="VIEW CHART">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <!--3-->
+        <Pane fx:id="month_purchase" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+            <children>
+                <Label layoutX="5.0" layoutY="5.0" prefHeight="25.0" text="ENTER MONTH ">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="p_month" layoutX="126.0" layoutY="5.0" promptText="MONTH ( MM )">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+                <Label layoutX="5.0" layoutY="58.0" prefHeight="25.0" prefWidth="99.0" text="ENTER YEAR  ">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="p_year" layoutX="126.0" layoutY="58.0" promptText="YEAR ( YYYY )">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+                <Button fx:id="view_month_purchase" layoutX="320.0" layoutY="58.0" mnemonicParsing="false" onAction="#purchase_month" prefHeight="25.0" prefWidth="99.0" text="VIEW CHART">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <!--4-->
+        <Pane fx:id="date_sales" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+            <children>
+
+                <Label layoutX="5.0" layoutY="5.0" prefHeight="25.0" text="ENTER STARTING DATE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="s_date" layoutX="172.0" layoutY="5.0" />
+
+                <Label layoutX="5.0" layoutY="58.0" prefHeight="25.0" text="ENTER ENDING DATE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="e_date" layoutX="172.0" layoutY="58.0" />
+
+                <Button layoutX="368.0" layoutY="61.0" mnemonicParsing="false" onAction="#date_sales" prefHeight="25.0" prefWidth="99.0" text="VIEW CHART">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <!--5-->
+        <Pane fx:id="product_sales" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+            <children>
+                <Label layoutX="5.0" layoutY="5.0" prefHeight="25.0" text="ENTER PRODUCT NAME">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="sold_product_name" layoutX="175.0" layoutY="5.0" onKeyTyped="#medicine_live_search" promptText="PRODUCT NAME">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+
+                <Label layoutX="5.0" layoutY="38.0" prefHeight="25.0" text="ENTER MONTH        ">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="sold_product_month" layoutX="175.0" layoutY="38.0" promptText="MONTH ( MM )">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+
+                <Label layoutX="5.0" layoutY="71.0" prefHeight="25.0" text="ENTER YEAR      ">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="sold_product_year" layoutX="175.0" layoutY="71.0" promptText="YEAR ( YYYY )">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+
+                <Button layoutX="358.0" layoutY="65.0" mnemonicParsing="false" onAction="#product_wise_saless" prefHeight="25.0" prefWidth="99.0" text="VIEW CHART">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <!--6-->
+        <Pane fx:id="date_purchase" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+            <children>
+
+                <Label layoutX="5.0" layoutY="5.0" prefHeight="25.0" text="ENTER STARTING DATE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="start_date" layoutX="163.0" layoutY="5.0" />
+
+                <Label layoutX="5.0" layoutY="61.0" prefHeight="25.0" text="ENTER ENDING DATE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="end_date" layoutX="163.0" layoutY="61.0" />
+
+                <Button layoutX="360.0" layoutY="60.0" mnemonicParsing="false" onAction="#date_purchase" prefHeight="25.0" prefWidth="99.0" text="VIEW CHART">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <!--7-->
+        <Pane fx:id="month_sales" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+            <children>
+                <Label layoutX="5.0" layoutY="5.0" prefHeight="25.0" text="ENTER MONTH">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="s_month" layoutX="130.0" layoutY="5.0" promptText="MONTH ( MM )">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+                <Label layoutX="5.0" layoutY="58.0" prefHeight="25.0" text="ENTER YEAR  ">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="ss_year" layoutX="130.0" layoutY="58.0" promptText="YEAR ( YYYY )">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+                <Button layoutX="329.0" layoutY="59.0" mnemonicParsing="false" onAction="#sales_month" prefHeight="25.0" prefWidth="99.0" text="VIEW CHART">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <!--8-->
+        <Pane fx:id="product_purchase" layoutX="300.0" layoutY="45.0" prefHeight="100.0" prefWidth="650.0" visible="false">
+            <children>
+
+                <Label layoutX="5.0" layoutY="5.0" prefHeight="25.0" text="ENTER PRODUCT NAME">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="product_name" layoutX="168.0" layoutY="5.0" onKeyTyped="#product_live_search" promptText="PRODUCT NAME">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+
+                <Label layoutX="5.0" layoutY="36.0" prefHeight="25.0" text="ENTER MONTH         ">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="product_month" layoutX="168.0" layoutY="36.0" promptText="MONTH ( MM )">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+
+                <Label layoutX="5.0" layoutY="69.0" prefHeight="25.0" text="ENTER YEAR              ">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="product_year" layoutX="168.0" layoutY="69.0" promptText="YEAR ( YYYY )">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+
+                <Button layoutX="355.0" layoutY="67.0" mnemonicParsing="false" onAction="#product_wise_purchase" prefHeight="25.0" prefWidth="99.0" text="VIEW CHART">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

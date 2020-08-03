@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefHeight="720.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Billing">
+    <content>
+        <AnchorPane prefHeight="715.0" prefWidth="1045.0">
+            <children>
+                <Label layoutX="100.0" layoutY="12.0" text="BILLING" underline="true">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="35.0" fitWidth="67.0" layoutX="20.0" layoutY="13.0">
+                    <image>
+                        <Image url="@../img/billing.png" />
+                    </image>
+                </ImageView>
+
+
+                <Label layoutX="253.0" layoutY="24.0" text="USER" underline="true">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label fx:id="user_name" layoutX="306.0" layoutY="24.0">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+
+                <Label layoutX="443.0" layoutY="10.0" text="DATE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="dateTaking" focusTraversable="false" layoutX="492.0" layoutY="7.0" prefHeight="25.0" prefWidth="151.0" />
+
+                <Label layoutX="670.0" layoutY="9.0" text="INVOICE NO">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="invoiceNumber" focusTraversable="false" layoutX="754.0" layoutY="8.0" onKeyReleased="#loadInvoiceDetailsByInvoiceNumber" prefHeight="25.0" prefWidth="149.0" promptText="INVOICE NO">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="19.0" layoutY="50.0" text="CUSTOMER ID">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="customerId" layoutX="138.0" layoutY="46.0" onKeyReleased="#customerSearchById" prefHeight="25.0" prefWidth="200.0" promptText="CUSTOMER ID">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <Label layoutX="19.0" layoutY="76.0" text="CUSTOMER NAME">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="customerNameEditText" layoutX="138.0" layoutY="72.0" onKeyReleased="#customerSearchByName" prefHeight="25.0" prefWidth="200.0" promptText="CUSTOMER NAME">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="20.0" layoutY="102.0" text="PRODUCT NAME">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="productName" layoutX="139.0" layoutY="98.0" onKeyReleased="#ProductLiveSearch" prefHeight="20.0" prefWidth="200.0" promptText="PRODUCT NAME">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="19.0" layoutY="128.0" text="PRODUCT CODE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="productcodebill" layoutX="139.0" layoutY="124.0" onKeyReleased="#getAllTheQuantity" prefHeight="25.0" prefWidth="200.0" promptText="PRODUCT CODE">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Pane fx:id="showstock" layoutX="352.0" layoutY="56.0" prefHeight="250.0" prefWidth="550.0" />
+
+                <Label layoutX="18.0" layoutY="153.0" text="TRADE PRICE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tradeprice" layoutX="139.0" layoutY="150.0" prefHeight="25.0" prefWidth="200.0" promptText="TRADE PRICE">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="18.0" layoutY="180.0" text="QUANTITY">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="productQuantity" layoutX="139.0" layoutY="176.0" prefHeight="25.0" prefWidth="200.0" promptText="QUANTITY">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="18.0" layoutY="206.0" text="DISC % - AMOUNT">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="dis_in_per" layoutX="139.0" layoutY="202.0" prefHeight="25.0" prefWidth="80.0" promptText="DISC %">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="dis_in_amount" layoutX="219.0" layoutY="202.0" prefHeight="25.0" prefWidth="120.0" promptText="DISC AMOUNT">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <JFXButton buttonType="RAISED" layoutX="251.0" layoutY="256.0" onAction="#AddBill" prefHeight="8.0" prefWidth="88.0" style="-fx-background-color: #d9d9d9;" text="ADD">
+                    <font>
+                        <Font name="System Bold" size="11.0" />
+                    </font>
+                </JFXButton>
+
+                <Label layoutX="14.0" layoutY="287.0" text="GRAND TOTAL">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="grantBilling" editable="false" focusTraversable="false" layoutX="139.0" layoutY="284.0" prefHeight="25.0" prefWidth="200.0" promptText="GRAND TOTAL">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="14.0" layoutY="312.0" text="RETURN STOCK AMOUNT">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="returnStockAmount" focusTraversable="false" layoutX="189.0" layoutY="310.0" onKeyReleased="#calculateFinalAmount1" prefHeight="25.0" prefWidth="150.0" promptText="AMOUNT">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="19.0" layoutY="231.0" prefHeight="20.0" prefWidth="113.0" text="D/R AMOUNT">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="d_rAmount" focusTraversable="false" layoutX="139.0" layoutY="228.0" onKeyReleased="#calculateFinalAmount1" prefHeight="25.0" prefWidth="199.0" promptText="D/R AMOUNT">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="finalAmount" editable="false" focusTraversable="false" layoutX="139.0" layoutY="336.0" prefHeight="25.0" prefWidth="200.0" promptText="FINAL AMOUNT">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+
+                <Pane fx:id="ReturnAdded" layoutX="20.0" layoutY="365.0" prefHeight="210.0" prefWidth="880.0" />
+                <Label layoutX="37.0" layoutY="348.0" text="TAXABLE VALUE:" visible="false">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+
+                <JFXButton buttonType="RAISED" layoutX="421.0" layoutY="620.0" onAction="#rec_gen" prefHeight="30.0" prefWidth="184.0" style="-fx-background-color: #d9d9d9;" text="GENERATE CASH BILL">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="422.0" layoutY="660.0" onAction="#rec_gen_credit" prefHeight="30.0" prefWidth="184.0" style="-fx-background-color: #d9d9d9;" text="GENERATE CREDIT BILL">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="214.0" layoutY="626.0" onAction="#return_file" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #d9d9d9;" text="RETURNS">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="214.0" layoutY="589.0" onAction="#return_all_item" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #d9d9d9;" text="RETURN ALL">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="213.0" layoutY="664.0" onAction="#openPaymentWindow" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #d9d9d9;" text="PAY CREDIT BILL">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="466.0" layoutY="665.0" onAction="#refreshingbill" prefHeight="30.0" prefWidth="140.0" style="-fx-background-color: #d9d9d9;" text="REFRESH" visible="false">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </JFXButton>
+                <TextField fx:id="Old_balanceField" focusTraversable="false" layoutX="7.0" layoutY="618.0" prefHeight="25.0" prefWidth="188.0" promptText="OLD BALANCE">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <Label fx:id="label1" layoutX="13.0" layoutY="598.0" text="OLD BALANCE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="NeedTo_payfield" focusTraversable="false" layoutX="7.0" layoutY="669.0" prefHeight="25.0" prefWidth="186.0" promptText="NEED TO PAY">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </TextField>
+                <Label fx:id="label2" layoutX="12.0" layoutY="647.0" text="NEED TO PAY">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+
+                <Label layoutX="637.0" layoutY="552.0" prefHeight="24.0" text="DISPATCH TO" visible="false">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="dispatchto" layoutX="739.0" layoutY="544.0" prefHeight="60.0" prefWidth="175.0" promptText="Area" visible="false">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </TextArea>
+
+                <Label layoutX="637.0" layoutY="603.0" prefHeight="24.0" text="DISP THROUGH" visible="false">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="dispatchedthrough" layoutX="739.0" layoutY="603.0" prefHeight="24.0" prefWidth="175.0" promptText="Vehicle Details" visible="false">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </TextField>
+
+                <Label layoutX="630.0" layoutY="594.0" prefHeight="24.0" text="PAYMENT MODE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="paymentmode" layoutX="771.0" layoutY="596.0" prefHeight="24.0" prefWidth="175.0" />
+                <Label layoutX="630.0" layoutY="620.0" prefHeight="24.0" text="REMAINING AMOUNT">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="remainAmt" layoutX="771.0" layoutY="622.0" prefHeight="24.0" prefWidth="175.0" />
+
+                <Label layoutX="632.0" layoutY="653.0" text="OTHER DETAILS">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="otherDetails" layoutX="771.0" layoutY="648.0" prefHeight="51.0" prefWidth="175.0" promptText="Details" />
+                <CheckBox fx:id="a4half" layoutX="472.0" layoutY="588.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="63.0" text="A4/2" visible="false">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </CheckBox>
+            <Label layoutX="15.0" layoutY="339.0" text="FINAL AMOUNT">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="billtype" layoutX="912.0" layoutY="12.0" prefHeight="17.0" prefWidth="86.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+
+
+            </children>
+        </AnchorPane>
+    </content>
+</ScrollPane>

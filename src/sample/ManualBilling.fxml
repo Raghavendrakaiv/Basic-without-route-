@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750" prefWidth="1020" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ManualBilling">
+    <content>
+        <Pane>
+            <Pane>
+                <Label layoutX="400" layoutY="1" text="MANUAL BILLING" underline="true">
+                    <font>
+                        <Font name="System Bold" size="20" />
+                    </font>
+                </Label>
+            </Pane>
+            <TabPane layoutX="10" layoutY="40" prefHeight="700" prefWidth="1000" style="-fx-border-width: 0.2px; -fx-border-color: #111111;-fx-background-color:ffffff;">
+                <tabs>
+                    <Tab closable="false" style="-fx-font-weight: Bold; -fx-font-size: 15px;" text="Manual Billing Entry">
+                        <AnchorPane layoutY="10" prefHeight="667.0" prefWidth="1000.0">
+                            <children>
+                                <VBox layoutX="10" spacing="10">
+                                    <Pane fx:id="firstPane">
+                                        <HBox layoutY="10" spacing="10">
+
+                                            <Pane prefHeight="75.0" prefWidth="970.0" style="-fx-border-width: 0.2px; -fx-border-color: #111111;-fx-background-color:ffffff;">
+                                                <HBox layoutX="10.0" layoutY="10.0" spacing="10">
+                                                    <Pane>
+                                                        <Label text="Date ">
+                                                            <font>
+                                                                <Font name="System Bold" size="13" />
+                                                            </font>
+                                                        </Label>
+                                                        <DatePicker fx:id="date" layoutX="77.0" prefWidth="150" />
+
+                                                        <Label layoutY="30" text="Invoice No">
+                                                            <font>
+                                                                <Font name="System Bold" size="13" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="invoiceNo" focusTraversable="false" layoutX="77.0" layoutY="30.0" onKeyReleased="#loadInvoiceDetails" prefWidth="150">
+                                                            <font>
+                                                                <Font name="System Bold" size="13" />
+                                                            </font>
+                                                        </TextField>
+                                                    </Pane>
+                                                    <Pane>
+                                                        <Label text="Customer Name">
+                                                            <font>
+                                                                <Font name="System Bold" size="13" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="cName" layoutX="106.0" prefWidth="150">
+                                                            <font>
+                                                                <Font name="System Bold" size="13" />
+                                                            </font>
+                                                        </TextField>
+
+                                                        <Label layoutY="30" text="Phone No">
+                                                            <font>
+                                                                <Font name="System Bold" size="13" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="cPhoneNo" layoutX="106.0" layoutY="30.0" prefWidth="150">
+                                                            <font>
+                                                                <Font name="System Bold" size="13" />
+                                                            </font>
+                                                        </TextField>
+
+                                                        <Label layoutX="284.0" text="Customer Details">
+                                                            <font>
+                                                                <Font name="System Bold" size="13" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextArea fx:id="cDetails" layoutX="399.0" layoutY="1.0" prefHeight="60.0" prefWidth="250.0">
+                                                            <font>
+                                                                <Font name="System Bold" size="13" />
+                                                            </font>
+                                                        </TextArea>
+                                                    </Pane>
+                                                </HBox>
+                                            </Pane>
+                                        </HBox>
+                                    </Pane>
+                                    <Pane fx:id="secondPane" prefWidth="961.0" style="-fx-border-width: 0.2px; -fx-border-color: #111111;-fx-background-color:ffffff;">
+
+                                        <HBox layoutX="10" spacing="10">
+                                            <Pane>
+                                                <VBox layoutY="10" spacing="2">
+                                                    <HBox>
+                                                        <Label prefWidth="130" text="Product Name">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="productName" prefWidth="160">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </TextField>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Label prefWidth="130" text="Packing Or Unit">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="packing" prefWidth="160">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </TextField>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Label prefWidth="130" text="HSN Code">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="hsnCode" prefWidth="160">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </TextField>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Label prefWidth="130" text="Rate">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="rate" alignment="CENTER_RIGHT" onKeyReleased="#calculateNetAmount" prefWidth="160">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </TextField>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Label prefWidth="130" text="Quantity">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="qty" alignment="CENTER_RIGHT" onKeyReleased="#calculateNetAmount" prefWidth="160">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </TextField>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Label prefWidth="130" text="Discount % / Amt">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="discPer" alignment="CENTER_RIGHT" onKeyReleased="#calculateNetAmount" prefHeight="25.0" prefWidth="70">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </TextField>
+                                                        <TextField fx:id="discAmount" alignment="CENTER_RIGHT" focusTraversable="false" onKeyReleased="#calculateNetAmount1" prefWidth="90">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </TextField>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Label prefWidth="130" text="Taxable Amount">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="taxableAmount" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefWidth="160">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </TextField>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Label prefWidth="130" text="(C+S)GST Rate / AMT">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </Label>
+                                                        <ComboBox fx:id="gstRate" onAction="#calculateNetAmount2" prefHeight="25.0" prefWidth="70" />
+                                                        <TextField fx:id="gstAmount" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefWidth="90">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </TextField>
+                                                    </HBox>
+                                                    <HBox>
+                                                        <Label prefWidth="130" text="Net Amount">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="netAmount" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="160">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </TextField>
+
+                                                    </HBox>
+                                                    <Pane>
+                                                        <JFXButton buttonType="RAISED" layoutX="150.0" layoutY="5" onKeyPressed="#addProductList1" onMouseClicked="#addProductList2" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #ffffff;" text="Add">
+                                                            <font>
+                                                                <Font name="System Bold" size="12" />
+                                                            </font>
+                                                        </JFXButton>
+                                                    </Pane>
+                                                </VBox>
+                                            </Pane>
+                                            <TableView fx:id="billedProductListTable" prefHeight="290" prefWidth="660.0" />
+
+                                        </HBox>
+                                    </Pane>
+
+
+                                    <Pane fx:id="thirdPane" prefWidth="900">
+                                        <HBox layoutX="10" spacing="10">
+                                            <JFXButton buttonType="RAISED" layoutX="50" layoutY="10" onKeyPressed="#deleteFromProductList1" onMouseClicked="#deleteFromProductList2" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #ffffff;" text="Delete Product">
+                                                <font>
+                                                    <Font name="System Bold" size="12" />
+                                                </font>
+                                            </JFXButton>
+                                            <JFXButton buttonType="RAISED" layoutX="50" layoutY="10" onKeyPressed="#deleteAllFromProductList1" onMouseClicked="#deleteAllFromProductList2" prefHeight="25.0" prefWidth="154.0" style="-fx-background-color: #ffffff;" text="Delete All Product">
+                                                <font>
+                                                    <Font name="System Bold" size="12" />
+                                                </font>
+                                            </JFXButton>
+                                        </HBox>
+                                    </Pane>
+                                    <Pane fx:id="forthPAne">
+                                        <HBox layoutX="10" spacing="10">
+                                            <VBox>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="100" text="Total Amount">
+                                                    <font>
+                                                        <Font name="System Bold" size="12" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="totalAmount" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefWidth="100">
+                                                    <font>
+                                                        <Font name="System Bold" size="12" />
+                                                    </font>
+                                                </TextField>
+                                            </VBox>
+                                            <Pane>
+                                                <Label alignment="CENTER" layoutY="15" text="-">
+                                                    <font>
+                                                        <Font name="System Bold" size="15" />
+                                                    </font>
+                                                </Label>
+                                            </Pane>
+                                            <VBox>
+                                                <Label alignment="CENTER_RIGHT" text="Deduction Amount">
+                                                    <font>
+                                                        <Font name="System Bold" size="12" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="deductionAmount" alignment="CENTER_RIGHT" onKeyReleased="#calculateFinalAmount3" prefWidth="100">
+                                                    <font>
+                                                        <Font name="System Bold" size="12" />
+                                                    </font>
+                                                </TextField>
+                                            </VBox>
+                                            <Pane>
+                                                <Label alignment="CENTER" layoutY="15" text="=">
+                                                    <font>
+                                                        <Font name="System Bold" size="15" />
+                                                    </font>
+                                                </Label>
+                                            </Pane>
+                                            <VBox>
+                                                <Label alignment="CENTER_RIGHT" prefWidth="100" text="Final Amount">
+                                                    <font>
+                                                        <Font name="System Bold" size="12" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="finalAmount" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" prefWidth="100">
+                                                    <font>
+                                                        <Font name="System Bold" size="12" />
+                                                    </font>
+                                                </TextField>
+                                            </VBox>
+                                            <Pane>
+                                                <VBox layoutX="50">
+                                                    <Label prefWidth="100" text="Dispatch Details">
+                                                        <font>
+                                                            <Font name="System Bold" size="12" />
+                                                        </font>
+                                                    </Label>
+                                                    <TextArea fx:id="dispatchDetailsTA" prefHeight="60" prefWidth="200">
+                                                        <font>
+                                                            <Font name="System Bold" size="12" />
+                                                        </font>
+                                                    </TextArea>
+                                                </VBox>
+                                            </Pane>
+                                            <VBox>
+                                                <Label prefWidth="100" text="Payment Mode">
+                                                    <font>
+                                                        <Font name="System Bold" size="12" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="paymentType" prefWidth="200" />
+                                                <Label prefWidth="100" text="Payment Details">
+                                                    <font>
+                                                        <Font name="System Bold" size="12" />
+                                                    </font>
+                                                </Label>
+                                                <TextArea fx:id="paymentDetailsTA" prefHeight="60" prefWidth="200">
+                                                    <font>
+                                                        <Font name="System Bold" size="12" />
+                                                    </font>
+                                                </TextArea>
+                                            </VBox>
+                                        </HBox>
+                                    </Pane>
+                                    <Pane fx:id="fifthPane">
+                                        <HBox alignment="CENTER" layoutX="10" prefWidth="960" spacing="10">
+                                            <JFXButton buttonType="RAISED" layoutX="50" layoutY="10" onKeyPressed="#generateInvoice1" onMouseClicked="#generateInvoice2" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: #ffffff;" text="Generate Invoice">
+                                                <font>
+                                                    <Font name="System Bold" size="15.0" />
+                                                </font>
+                                            </JFXButton>
+                                        </HBox>
+                                    </Pane>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </Tab>
+                    <Tab closable="false" style="-fx-font-weight: Bold; -fx-font-size: 15px;" text="Manual Billing Tracker">
+                        <Pane>
+                            <HBox layoutX="10" layoutY="10" spacing="10">
+                                <VBox spacing="2">
+                                    <HBox spacing="5">
+                                        <Label prefWidth="80" text="Date From">
+                                            <font>
+                                                <Font name="System Bold" size="12" />
+                                            </font>
+                                        </Label>
+                                        <DatePicker fx:id="dateFrom" prefWidth="120" />
+                                    </HBox>
+                                    <HBox spacing="5">
+                                        <Label prefWidth="80" text="Date To">
+                                            <font>
+                                                <Font name="System Bold" size="12" />
+                                            </font>
+                                        </Label>
+                                        <DatePicker fx:id="dateTo" prefWidth="120" />
+                                    </HBox>
+                                    <HBox spacing="5">
+                                        <Label prefWidth="80" text="Invoice No">
+                                            <font>
+                                                <Font name="System Bold" size="12" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="invoiceNo2" prefHeight="25.0" prefWidth="120.0">
+                                            <font>
+                                                <Font name="System Bold" size="12" />
+                                            </font>
+                                        </TextField>
+                                    </HBox>
+                                </VBox>
+                                <VBox spacing="2">
+                                    <HBox spacing="5">
+                                        <Label prefHeight="17.0" prefWidth="94.0" text="Product Name">
+                                            <font>
+                                                <Font name="System Bold" size="12" />
+                                            </font>
+                                        </Label>
+                                        <Pane fx:id="productName2Pane" />
+                                        <TextField fx:id="productName2" onKeyReleased="#searchProductName2" prefHeight="25.0" prefWidth="150.0" />
+                                    </HBox>
+                                    <HBox spacing="5">
+                                        <Label prefWidth="100" text="Customer Name">
+                                            <font>
+                                                <Font name="System Bold" size="12" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="cName2" prefWidth="150">
+                                            <font>
+                                                <Font name="System Bold" size="12" />
+                                            </font>
+                                        </TextField>
+                                    </HBox>
+                                    <HBox spacing="5">
+                                        <Label prefWidth="100" text="Phone No">
+                                            <font>
+                                                <Font name="System Bold" size="12" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="cPhno2" prefWidth="150">
+                                            <font>
+                                                <Font name="System Bold" size="12" />
+                                            </font>
+                                        </TextField>
+                                    </HBox>
+                                </VBox>
+
+
+                                <Pane>
+                                    <JFXButton buttonType="RAISED" layoutY="14.0" mnemonicParsing="false" onKeyPressed="#searchManualBillingDetails1" onMouseClicked="#searchManualBillingDetails2" style="-fx-background-color:#ffffff" text="Search">
+                                        <font>
+                                            <Font name="System Bold" size="12" />
+                                        </font>
+                                    </JFXButton>
+                                    <JFXButton buttonType="RAISED" layoutX="65.0" layoutY="14.0" mnemonicParsing="false" onKeyPressed="#excelManualBillingDetails1" onMouseClicked="#excelManualBillingDetails2" style="-fx-background-color:#ffffff" text="Excel Report">
+                                        <font>
+                                            <Font name="System Bold" size="12" />
+                                        </font>
+                                    </JFXButton>
+                                </Pane>
+                            </HBox>
+
+                            <TableView fx:id="manualBillingTracherTableView" layoutX="10.0" layoutY="125.0" prefHeight="420.0" prefWidth="940.0" />
+                            <VBox layoutX="700.0" layoutY="10" spacing="2">
+                                <HBox>
+                                    <Label prefWidth="100" text="Taxable Amount">
+                                        <font>
+                                            <Font name="System Bold" size="12" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="totalTaxableAmount" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" layoutX="826.0" layoutY="3.0" prefWidth="120">
+                                        <font>
+                                            <Font name="System Bold" size="12" />
+                                        </font>
+                                    </TextField>
+                                </HBox>
+                                <HBox>
+                                    <Label prefWidth="100" text="GST Amount">
+                                        <font>
+                                            <Font name="System Bold" size="12" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="totalGSTAmount" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" layoutX="826.0" layoutY="3.0" prefWidth="120">
+                                        <font>
+                                            <Font name="System Bold" size="12" />
+                                        </font>
+                                    </TextField>
+                                </HBox>
+                                <HBox>
+                                    <Label prefWidth="100" text="Bill Amount">
+                                        <font>
+                                            <Font name="System Bold" size="12" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="totalBillAmount" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" layoutX="826.0" layoutY="3.0" prefWidth="120">
+                                        <font>
+                                            <Font name="System Bold" size="12" />
+                                        </font>
+                                    </TextField>
+                                </HBox>
+                            </VBox>
+
+                        </Pane>
+
+                    </Tab>
+                </tabs>
+            </TabPane>
+        </Pane>
+    </content>
+</ScrollPane>

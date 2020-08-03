@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MedicalInventory">
+   <children>
+
+             <Label layoutX="35.0" layoutY="4.0" text="INVENTORY REPORT">
+                <font>
+                   <Font name="System Bold" size="20" />
+                </font>
+             </Label>
+             <ComboBox fx:id="inventoryfilterList" layoutX="10.0" layoutY="40.0" onAction="#loadInventoryPane" prefHeight="30" prefWidth="245" />
+
+             <Pane fx:id="displayOfTablePane" layoutX="20.0" layoutY="173.0" prefHeight="468.0" prefWidth="954.0" />
+
+
+         <!--GST REPORT DAY WISE-->
+         <Pane fx:id="gstreportdaywisepane" layoutX="260.0" layoutY="40.0" prefHeight="100.0" prefWidth="700.0" visible="false">
+            <Label layoutX="5.0" layoutY="5.0" prefHeight="20" text="SELECT DATE TO GET THE SALES IN BETWEEN :">
+               <font>
+                  <Font name="System Bold" size="13" />
+               </font>
+            </Label>
+            <DatePicker fx:id="date7" layoutX="330.0" layoutY="5.0" prefHeight="20" prefWidth="150" promptText="FROM DATE" />
+
+            <DatePicker fx:id="date8" layoutX="500.0" layoutY="5.0" prefHeight="20" prefWidth="150" promptText="TO DATE" />
+
+            <Button layoutX="300.0" layoutY="55.0" mnemonicParsing="false" onAction="#loadGstReportDayWiseExcel" prefHeight="20" prefWidth="150" text="EXCEL VIEW">
+               <font>
+                  <Font size="13" />
+               </font>
+            </Button>
+         </Pane>
+
+         <!--GST REPORT DAY WISE-->
+         <Pane fx:id="gstreportinvoicewisepane" layoutX="260.0" layoutY="40.0" prefHeight="100.0" prefWidth="700.0" visible="false">
+            <Label layoutX="5.0" layoutY="5.0" prefHeight="20" text="SELECT DATE TO GET THE SALES IN BETWEEN :">
+               <font>
+                  <Font name="System Bold" size="13" />
+               </font>
+            </Label>
+            <DatePicker fx:id="date9" layoutX="330.0" layoutY="5.0" prefHeight="20" prefWidth="150" promptText="FROM DATE" />
+
+            <DatePicker fx:id="date10" layoutX="500.0" layoutY="5.0" prefHeight="20" prefWidth="150" promptText="TO DATE" />
+
+            <Button layoutX="300.0" layoutY="55.0" mnemonicParsing="false" onAction="#loadGstReportInvoiceWiseExcel" prefHeight="20" prefWidth="150" text="EXCEL VIEW">
+               <font>
+                  <Font size="13" />
+               </font>
+            </Button>
+         </Pane>
+
+      <Pane fx:id="completePurchaseDetailsPane" layoutX="260.0" layoutY="1.0" prefHeight="160.0" prefWidth="700.0" visible="false">
+         <Label layoutX="5.0" layoutY="4.0" prefHeight="20" text="DATE FROM">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <DatePicker fx:id="pFromDate" layoutX="110.0" prefHeight="20" prefWidth="150" promptText="FROM DATE" style="-fx-font-size : 75%" />
+
+         <Label layoutX="5.0" layoutY="30.0" prefHeight="20" text="DATE TO ">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <DatePicker fx:id="pToDate" layoutX="110.0" layoutY="26.0" prefHeight="20" prefWidth="150" promptText="TO DATE" style="-fx-font-size : 75%" />
+
+         <Label layoutX="6.0" layoutY="56.0" prefHeight="20" text="P INVOICE NO">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="pinvoiceNo" layoutX="110.0" layoutY="52.0" onKeyReleased="#liveSearchForInvoiceInPT" prefHeight="20" prefWidth="150" promptText="P INVOICE NUMBER">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+         <Label layoutX="6.0" layoutY="81.0" prefHeight="20" text="DEALER NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="dealerName" layoutX="110.0" layoutY="77.0" onKeyReleased="#liveSearchForDealerInPT" prefHeight="20" prefWidth="150" promptText="DEALER NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+         <Label layoutX="6.0" layoutY="106.0" prefHeight="20" text="PRODUCT NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="productName" layoutX="110.0" layoutY="102.0" onKeyReleased="#liveSearchForProductInPT" prefHeight="20" prefWidth="150" promptText="PRODUCT NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+         <Label layoutX="6.0" layoutY="131.0" prefHeight="20" text="PRODUCT CODE">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="productcode" layoutX="110.0" layoutY="127.0" onKeyReleased="#liveSearchForproductcategoryInPT" prefHeight="20" prefWidth="150" promptText="PRODUCT CODE">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="296.0" layoutY="29.0" prefHeight="20" text="PURCHASE AMOUNT : ">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="pAmount" focusTraversable="false" layoutX="296.0" layoutY="48.0" prefHeight="20" prefWidth="150" promptText="PURCHASE AMOUNT">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+         <Button layoutX="292.0" layoutY="114.0" mnemonicParsing="false" onAction="#viewPurchaseDetails" prefHeight="29.0" prefWidth="75.0" text="VIEW">
+            <font>
+               <Font size="13" />
+            </font>
+         </Button>
+         <Button layoutX="372.0" layoutY="114.0" mnemonicParsing="false" onAction="#excelReportPurchaseDetails" prefHeight="20" prefWidth="150" text="EXCEL REPORT">
+            <font>
+               <Font size="13" />
+            </font>
+         </Button>
+
+      </Pane>
+
+      <Pane fx:id="completeCurrentStockDetailsPane" layoutX="260.0" layoutY="1.0" prefHeight="160.0" prefWidth="734.0" visible="false">
+         <Label layoutX="5.0" layoutY="4.0" prefHeight="20" text="DATE FROM">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <DatePicker fx:id="scFromDate" layoutX="110.0" prefHeight="20" prefWidth="150" promptText="FROM DATE" style="-fx-font-size : 75%" />
+
+         <Label layoutX="5.0" layoutY="30.0" prefHeight="20" text="DATE TO ">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <DatePicker fx:id="scToDate" layoutX="110.0" layoutY="26.0" prefHeight="20" prefWidth="150" promptText="TO DATE" style="-fx-font-size : 75%" />
+
+         <Label layoutX="6.0" layoutY="56.0" prefHeight="20" text="P INVOICE NO">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="scPinvoiceNo" layoutX="110.0" layoutY="52.0" onKeyReleased="#liveSearchForInvoiceInPTInCST" prefHeight="20" prefWidth="150" promptText="P INVOICE NUMBER">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+         <Label layoutX="6.0" layoutY="81.0" prefHeight="20" text="DEALER NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="scdealerName" layoutX="110.0" layoutY="77.0" onKeyReleased="#liveSearchForDealerInCST" prefHeight="20" prefWidth="150" promptText="DEALER NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="6.0" layoutY="106.0" prefHeight="20" text="PRODUCT NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="scproductName" layoutX="110.0" layoutY="102.0" onKeyReleased="#liveSearchForProductInCST" prefHeight="20" prefWidth="150" promptText="PRODUCT NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="6.0" layoutY="131.0" prefHeight="20" text="PRODUCT CODE">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="productcodeInCPT" layoutX="110.0" layoutY="127.0" onKeyReleased="#liveSearchForproductcodeInCPT" prefHeight="20" prefWidth="150" promptText="PRODUCT CODE">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="299.0" layoutY="37.0" prefHeight="20" text="QUANTITY RANGE  From :">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="scRangeFrom" layoutX="447.0" layoutY="34.0" prefHeight="25.0" prefWidth="80.0" promptText="QTY">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+         <Label layoutX="534.0" layoutY="37.0" prefHeight="20" text="To :">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="scRangeTo" layoutX="563.0" layoutY="34.0" prefHeight="25.0" prefWidth="80.0" promptText="QTY">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="296.0" layoutY="102.0" prefHeight="20" text="PURCHASE AMOUNT : ">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="scpAmount" focusTraversable="false" layoutX="426.0" layoutY="100.0" prefHeight="20" prefWidth="150" promptText="PURCHASE AMOUNT">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="296.0" layoutY="128.0" prefHeight="20" text="TOTAL QUANTITY : ">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="scTotalQty" focusTraversable="false" layoutX="426.0" layoutY="126.0" prefHeight="20" prefWidth="150" promptText="QUANTITY">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Button layoutX="606.0" layoutY="88.0" mnemonicParsing="false" onAction="#viewCurrentStockDetails" prefHeight="29.0" prefWidth="121.0" text="VIEW">
+            <font>
+               <Font size="13" />
+            </font>
+         </Button>
+         <Button layoutX="605.0" layoutY="123.0" mnemonicParsing="false" onAction="#excelReportCurrentStockDetails" prefHeight="29.0" prefWidth="121.0" text="EXCEL REPORT">
+            <font>
+               <Font size="13" />
+            </font>
+         </Button>
+
+      </Pane>
+
+      <Pane fx:id="completeSalesDetailsPane" layoutX="260.0" layoutY="1.0" prefHeight="160.0" prefWidth="700.0" visible="false">
+         <Label layoutX="5.0" layoutY="4.0" prefHeight="20" text="DATE FROM">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <DatePicker fx:id="sFromDate" layoutX="110.0" prefHeight="20" prefWidth="150" promptText="FROM DATE" style="-fx-font-size : 75%" />
+
+         <Label layoutX="5.0" layoutY="30.0" prefHeight="20" text="DATE TO ">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <DatePicker fx:id="sToDate" layoutX="110.0" layoutY="26.0" prefHeight="20" prefWidth="150" promptText="TO DATE" style="-fx-font-size : 75%" />
+
+         <Label layoutX="6.0" layoutY="56.0" prefHeight="20" text="INVOICE NO">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="sInvoiceNo" layoutX="110.0" layoutY="52.0" onKeyReleased="#liveSearchForInvoiceInST" prefHeight="20" prefWidth="150" promptText="INVOICE NUMBER">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+         <Label layoutX="6.0" layoutY="81.0" prefHeight="20" text="DEALER NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="sDealerName" layoutX="110.0" layoutY="77.0" onKeyReleased="#liveSearchForDealerInST" prefHeight="20" prefWidth="150" promptText="DEALER NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="6.0" layoutY="106.0" prefHeight="20" text="PRODUCT NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="sProductName" layoutX="110.0" layoutY="102.0" onKeyReleased="#liveSearchForProductInST" prefHeight="20" prefWidth="150" promptText="PRODUCT NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="6.0" layoutY="131.0" prefHeight="20" text="PRODUCT CODE">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="sProductCode" layoutX="110.0" layoutY="127.0" onKeyReleased="#liveSearchForProductCodeInST" prefHeight="20" prefWidth="150" promptText="PRODUCT CODE">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="276.0" layoutY="5.0" prefHeight="20" text="CUSTOMER ID">
+            <font>
+               <Font name="System Bold" size="12" />
+             </font>
+         </Label>
+         <TextField fx:id="sCustomerId" layoutX="381.0" layoutY="4.0" onKeyReleased="#liveSearchForCustId" prefHeight="20" prefWidth="150" promptText="CUSTOMER ID">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="274.0" layoutY="31.0" prefHeight="20" text="CUSTOMER NAME ">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="sCustomerName" layoutX="382.0" layoutY="30.0" onKeyReleased="#liveSearchForCustomerInST" prefHeight="25.0" prefWidth="150.0" promptText="NAME">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="276.0" layoutY="57.0" prefHeight="20" text="PHONE NUMBER">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="sPhonenumber" layoutX="383.0" layoutY="56.0" onKeyReleased="#liveSearchForPhonenumberInST" prefHeight="25.0" prefWidth="150.0" promptText="PHONE NUMBER">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+         <Label layoutX="280.0" layoutY="84.0" prefHeight="20" text="BILL TYPE">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+
+         <ComboBox fx:id="sbilltype" layoutX="385.0" layoutY="82.0" prefHeight="10" prefWidth="100" />
+
+         <Label layoutX="549.0" layoutY="4.0" prefHeight="20" text="PURCHASE AMOUNT : ">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="sPAmount" focusTraversable="false" layoutX="547.0" layoutY="23.0" prefHeight="25.0" prefWidth="147.0" promptText="PURCHASE AMOUNT">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="550.0" layoutY="49.0" prefHeight="20" text="SALES AMOUNT: ">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="sAmount" focusTraversable="false" layoutX="548.0" layoutY="67.0" prefHeight="25.0" prefWidth="147.0" promptText="SALES AMOUNT">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Label layoutX="549.0" layoutY="93.0" prefHeight="20" text="DIFFRENCE  AMOUNT: ">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </Label>
+         <TextField fx:id="sMargin" focusTraversable="false" layoutX="548.0" layoutY="111.0" prefHeight="25.0" prefWidth="147.0" promptText="DIFFRENCE AMOUNT">
+            <font>
+               <Font name="System Bold" size="12" />
+            </font>
+         </TextField>
+
+         <Button layoutX="299.0" layoutY="115.0" mnemonicParsing="false" onAction="#viewSalesDetails" prefHeight="29.0" prefWidth="75.0" text="VIEW">
+            <font>
+               <Font size="13" />
+            </font>
+         </Button>
+         <Button layoutX="379.0" layoutY="116.0" mnemonicParsing="false" onAction="#excelReportSalesDetails" prefHeight="29.0" prefWidth="107.0" text="EXCEL REPORT">
+            <font>
+               <Font size="13" />
+            </font>
+         </Button>
+
+      </Pane>
+      <Pane fx:id="ca_report_pane" layoutX="269.0" layoutY="19.0" prefHeight="122.0" prefWidth="714.0" visible="false">
+         <children>
+            <Label layoutX="26.0" layoutY="4.0" prefHeight="21.0" prefWidth="112.0" text="CA REPORT" underline="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="from_date" layoutX="96.0" layoutY="43.0" />
+            <DatePicker fx:id="to_date" layoutX="96.0" layoutY="75.0" />
+            <Label layoutX="47.0" layoutY="47.0" text="FROM">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="79.0" prefHeight="17.0" prefWidth="35.0" text="TO">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button layoutX="308.0" layoutY="70.0" mnemonicParsing="false" onAction="#generate_ca_report" prefHeight="30.0" prefWidth="130.0" text="EXCEL REPORT">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

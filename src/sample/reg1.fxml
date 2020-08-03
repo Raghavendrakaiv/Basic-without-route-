@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.reg2">
+    <children>
+        <Button layoutX="307.0" layoutY="52.0" mnemonicParsing="false" onAction="#gen_reg_rep1" text="VIEW REPORT">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font></Button>
+        <Label layoutX="339.0" layoutY="15.0" prefHeight="25.0" text="STOCK INFORMATION" underline="true">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Pane fx:id="view_reg_pane1" layoutX="24.0" layoutY="90.0" prefHeight="380.0" prefWidth="900.0" />
+      <Button layoutX="450.0" layoutY="53.0" mnemonicParsing="false" onAction="#printPurchasingReport" text="PRINT REPORT">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="148.0" layoutY="472.0" mnemonicParsing="false" onAction="#delete_stock" prefHeight="30.0" prefWidth="113.0" text="DELETE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Pane fx:id="view_pane" layoutX="137.0" layoutY="354.0" prefHeight="230.0" prefWidth="785.0" visible="false">
+         <children>
+             <Label layoutX="15.0" layoutY="113.0" text="STOCK NAME">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font></Label>
+             <Label layoutX="15.0" layoutY="162.0" text="QUANTITY">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font></Label>
+             <Label layoutX="396.0" layoutY="15.0" text="MRP">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font></Label>
+             <Label layoutX="15.0" layoutY="90.0" text="PRODUCT CODE">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Label>
+             <Label layoutX="14.0" layoutY="39.0" text="DEALER NAME">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Label>
+             <Label layoutX="15.0" layoutY="137.0" text="HSN">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Label>
+             <Label layoutX="396.0" layoutY="67.0" text="PURCHASE PRICE">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Label>
+             <Label layoutX="15.0" layoutY="64.0" text="PURCHASE DATE">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Label>
+             <Label layoutX="395.0" layoutY="42.0" text="TOTAL GST">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Label>
+             <Label layoutX="397.0" layoutY="139.0" text="TOTAL">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Label>
+             <Label layoutX="14.0" layoutY="15.0" text="PURCHASE INVOICE">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Label>
+             <Label layoutX="396.0" layoutY="117.0" text="SELLING PRICE">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Label>
+             <Label layoutX="396.0" layoutY="92.0" text="PURCHASE DISCOUNT">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </Label>
+
+             <TextField fx:id="p_id" layoutX="170.0" layoutY="10.0" prefHeight="25.0" prefWidth="200.0" visible="false">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="purchase_invoice" layoutX="170.0" layoutY="10.0" prefHeight="25.0" prefWidth="200.0" promptText="PURCHASE INVOICE">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="dealerSearch" layoutX="170.0" layoutY="35.0" onKeyTyped="#makeLiveSearchaForDealer" prefHeight="25.0" prefWidth="200.0" promptText="DEALER NAME">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font></TextField>
+             <DatePicker fx:id="StockDate" layoutX="170.0" layoutY="60.0" prefHeight="25.0" prefWidth="200.0" />
+
+             <TextField fx:id="ProductCode" editable="false" layoutX="170.0" layoutY="85.0" prefHeight="25.0" prefWidth="200.0" promptText="PRODUCT CODE">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font></TextField>
+             <TextField fx:id="StockName" layoutX="170.0" layoutY="110.0" onKeyPressed="#MakeStockLiveSearch" prefHeight="25.0" prefWidth="200.0" promptText="STOCK NAME">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font></TextField>
+             <TextField fx:id="Hsn" layoutX="170.0" layoutY="135.0" prefHeight="25.0" prefWidth="200.0" promptText="HSN">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="Quantity" layoutX="170.0" layoutY="160.0" onKeyReleased="#stockingPriceInTotal" prefHeight="25.0" prefWidth="200.0" promptText="QUANTITY">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font></TextField>
+             <TextField fx:id="MRP" layoutX="551.0" layoutY="11.0" prefHeight="25.0" prefWidth="200.0" promptText="MRP">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font></TextField>
+             <ComboBox fx:id="totalgst" layoutX="551.0" layoutY="36.0" prefHeight="25" prefWidth="200.0" />
+             <TextField fx:id="Purchaseprice" layoutX="551.0" layoutY="61.0" onKeyReleased="#stockingPriceInTotal" prefHeight="25.0" prefWidth="200.0" promptText="PURCHASE PRICE">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="p_discount" layoutX="551.0" layoutY="86.0" prefHeight="25.0" prefWidth="200.0" promptText="DISCOUNT IN %">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="s_price" layoutX="552.0" layoutY="111.0" prefHeight="25.0" prefWidth="200.0" promptText="SELLING PRICE">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="stockingpriceto" layoutX="553.0" layoutY="136.0" onKeyReleased="#stockingPriceInTotal" prefHeight="25.0" prefWidth="200.0" promptText="TOTAL">
+                 <font>
+                     <Font name="System Bold" size="12.0" />
+                 </font>
+             </TextField>
+            <Button layoutX="313.0" layoutY="192.0" mnemonicParsing="false" onAction="#save_stock_info" prefHeight="30.0" prefWidth="113.0" text="SAVE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>
