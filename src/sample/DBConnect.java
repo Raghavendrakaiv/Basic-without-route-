@@ -18,7 +18,7 @@ public class DBConnect {
     public static Connection connect() throws Exception {
         try{
             System.out.println("Here i called "+P.ipaddress_name().toString());
-
+            System.out.println("Posting to git here");
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         }catch(ClassNotFoundException cnfe){
             System.err.println("Error: "+cnfe.getMessage());
